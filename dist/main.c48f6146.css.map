@@ -1,0 +1,1 @@
+{"version":3,"sources":["public/css/modules/test.scss"],"names":[],"mappings":"AAEA;EACI,kBAHI","file":"main.c48f6146.css","sourceRoot":"..","sourcesContent":["$grey : rgba(144, 144, 144, 0.829);\n\nbody{\n    background-color: $grey;\n}"]}
