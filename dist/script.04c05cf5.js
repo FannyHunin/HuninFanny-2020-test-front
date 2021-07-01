@@ -117,20 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/js/modules/test.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.test = void 0;
-
-var test = function test(greeting) {
-  return "".concat(greeting, ", bro");
-};
-
-exports.test = test;
-},{}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -205,106 +192,54 @@ module.hot.accept(reloadCSS);
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/js/script.js":[function(require,module,exports) {
 "use strict";
 
-var _test = require("./modules/test.js");
-
 require("../../public/css/style.scss");
 
-// document.querySelector('h1').textContent = test(`How's it going `)
-document.addEventListener('DOMContentLoaded', function () {
-  var btn = document.querySelector('button');
-  var pName = document.getElementsByClassName('name')[0];
-  var pDescr = document.getElementsByClassName('descr')[0];
-  var pImg = document.getElementsByClassName('img')[0];
+var col1 = document.querySelector(".col-1");
+var col2 = document.querySelector(".col-2");
+var beer_div;
+var beer_info;
+var see_more;
+fetch('https://api.punkapi.com/v2/beers?page=2&per_page=60').then(function (response) {
+  return response.json();
+}).then(function (data) {
+  console.log(data);
+  data.forEach(function (element) {
+    var beer_name = document.createElement('h1');
+    var beer_tag = document.createElement('p');
+    var beer_brewed = document.createElement('p');
+    var beer_img = document.createElement('img');
+    var see_more = document.createElement('button');
 
-  var getData = function getData() {
-    fetch('https://api.punkapi.com/v2/beers/random').then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      console.log(data);
-      var name = data[0].name;
-      var tag = data[0].tagline;
-      var img = data[0].image_url;
-      console.log(name);
-      console.log(tag);
-      console.log(img);
-      pName.innerHTML = name;
-      pDescr.innerHTML = tag;
-      pImg.setAttribute('src', img);
-    });
-  };
+    if (element.id % 2 == 1) {
+      beer_div = document.createElement("div");
+      beer_div.setAttribute('class', 'beer_div');
+      col1.appendChild(beer_div);
+      beer_info = document.createElement("div");
+      beer_info.setAttribute('class', 'odd-info');
+      beer_div.appendChild(beer_info);
+    } else {
+      beer_div = document.createElement("div");
+      beer_div.classList.add('beer_div');
+      col2.appendChild(beer_div);
+      beer_info = document.createElement("div");
+      beer_info.classList.add('odd-info');
+      beer_div.appendChild(beer_info);
+    }
 
-  btn.addEventListener('click', getData);
-}); // fetch('https://reqres.in/api/users', {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type' : 'application/json'
-//     },
-//     body : JSON.stringify({
-//         name : 'Fanny'
-//     })
-// }).then(res => {
-//        return res.json()
-//     })
-//     .then(data => console.log(data))
-//     .catch(error => console.log('ERROR'))
-// let p = new Promise((resolve, reject) => {
-//     let a = 1+1
-//     if (a == 2) {
-//         resolve('Success')
-//     }else{
-//         reject('Failed')
-//     }
-// })
-// p.then((message) => {
-//     console.log('this is then ' + message)
-// }).catch((message) => {
-//     console.log('this is catch ' + message)
-// })
-// let userLeft = false
-// let userCatMeme = false
-// let watchTutoCallback = (callback, errorCallBack) => {
-//   if (userLeft) {
-//     errorCallBack({
-//       name: 'User left',
-//       message: ':c'
-//     })
-//   } else if (userCatMeme) {
-//     errorCallBack({
-//       name: "User is watching cat meme",
-//       message: "What a man of culture"
-//     })
-//   } else {
-//     callback('Yaaay')
-//   }
-// }
-// watchTutoCallback((message) => {
-//   console.log('Success : ' + message)
-// }, (error) => {
-//   console.log(error.name + ' ' + error.message)
-// })
-// let watchTutoPromise = () => {
-//   return new Promise((resolve, reject) => {
-//     if (userLeft) {
-//       reject({
-//         name: 'User left',
-//         message: ':c'
-//       })
-//     } else if (userCatMeme) {
-//       reject({
-//         name: "User is watching cat meme",
-//         message: "What a man of culture"
-//       })
-//     } else {
-//       resolve('Yaaay')
-//     }
-//   })
-// }
-// watchTutoPromise().then((message) => {
-//     console.log('Success : ' + message)
-//   }).catch((error) => {
-//     console.log(error.name + ' ' + error.message)
-//   })
-},{"./modules/test.js":"src/js/modules/test.js","../../public/css/style.scss":"public/css/style.scss"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+    beer_info.appendChild(beer_name);
+    beer_info.appendChild(beer_tag);
+    beer_info.appendChild(beer_brewed);
+    beer_info.appendChild(see_more);
+    beer_div.appendChild(beer_img);
+    beer_name.innerHTML = element.name;
+    beer_tag.innerHTML = element.tagline;
+    beer_brewed.innerHTML = "First brewed on ".concat(element.first_brewed);
+    beer_img.setAttribute("src", element.image_url);
+    see_more.innerHTML = "See more...";
+    see_more.setAttribute("class", "see-more-btn");
+  });
+});
+},{"../../public/css/style.scss":"public/css/style.scss"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -332,7 +267,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35187" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45743" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

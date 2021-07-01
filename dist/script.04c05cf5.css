@@ -1,5 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@300&family=Roboto&display=swap");
 body {
-  background-color: rgba(144, 144, 144, 0.829);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body #nav {
+  border-bottom: rgba(168, 166, 166, 0.5) solid 1px;
+  width: 75%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+body #nav #b {
+  font-family: "Anton", sans-serif;
+  font-size: 50px;
+  margin: 0;
+}
+body #nav #beer-icon {
+  width: 6%;
+  height: 6%;
+  transform: rotate(5deg);
+}
+
+#all-beers {
+  display: flex;
+  justify-content: center;
+}
+#all-beers .col-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#all-beers .col-1 .beer-div {
+  color: red;
+  display: flex;
+}
+#all-beers .col-2 {
+  margin-top: 50%;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: rgba(168, 166, 166, 0.5) solid 1px;
+  width: 75%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-top: 1%;
+}
+#footer #cheers {
+  font-family: "Roboto", sans-serif;
+}
+#footer #api {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
 }
 
 /*# sourceMappingURL=/script.04c05cf5.css.map */
