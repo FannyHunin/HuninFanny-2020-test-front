@@ -1,0 +1,91 @@
+#beer-modal{
+    width: 75%;
+    height: 4.7%;
+    border: rgba(0, 0, 0, 0.315) solid 1px;
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    animation: modal 1s;
+    animation-fill-mode: forwards;
+    
+    button{
+        border: none;
+        padding: 10px;
+        background-color: black;
+        color: white;
+        font-size: 15px;
+        width: max-content;
+        transition: .3s;
+    }
+    button:hover{
+        background-color: #F8CE01;
+        color: black;
+    }
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        .beer-modal-img{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            img{
+                width: 25%;
+            }
+        }
+        .beer-modal-info{
+            border-left: black solid 1px;
+            padding-left: 30px;
+            padding-right: 30px;
+            width: 50%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            h3{
+                font-family: $title;
+                font-size: 50px;
+                margin: 0;
+                color: #F8CE01;
+            }
+            h5{
+                font-family: $title;
+                font-size: 20px;
+                margin: 0;
+            }
+            p{
+                margin-top: 50px;
+                font-family: $text;
+            }
+            .spe{ 
+                display: flex;
+                justify-content: space-between;
+                width: 75%;
+                p{
+                    margin: 0;
+                    font-family: $text;
+                }
+            }
+        }
+    }
+}
+
+@keyframes modal {
+    from{
+        left: -100%;
+    }
+    to{
+        left: 15%;
+    }
+}
+
+.beer-none{
+    display: none;
+}
+

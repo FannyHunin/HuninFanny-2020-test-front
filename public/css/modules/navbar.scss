@@ -1,4 +1,5 @@
 body{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,10 +12,17 @@ body{
         align-items: center;
         padding-top: 1%;
         padding-bottom: 1%;
+        margin-bottom: 3%;
         #b{
             font-family: $title;
             font-size: 50px;
             margin: 0;
+        }
+        #beers{
+            font-family: $title;
+            font-size: 50px;
+            margin: 0;
+            color: #F8CE01;
         }
         #beer-icon{
             width: 6%;

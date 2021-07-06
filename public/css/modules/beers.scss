@@ -1,26 +1,14 @@
-#all-beers{
+#all-beers {
+  display: flex;
+  justify-content: center;
+
+  .col-1 {
     display: flex;
-    justify-content: center;
-    .col-1{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .beer-div{
-            color: red;
-            display: flex;
-        }
-    }
-    .col-2{
-        margin-top: 50%;
-    }
-    // .col-1, .col-2{
-    //     .beer-div{
-    //         .odd-info, .even-info{
-                
-    //             img{
-    //                 width: 50%;
-    //             }
-    //         }
-    //     }
-    // }
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col-2 {
+    margin-top: 15%;
+  }
 }

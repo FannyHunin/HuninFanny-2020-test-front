@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@300&family=Roboto&display=swap");
 body {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,11 +14,18 @@ body #nav {
   align-items: center;
   padding-top: 1%;
   padding-bottom: 1%;
+  margin-bottom: 3%;
 }
 body #nav #b {
   font-family: "Anton", sans-serif;
   font-size: 50px;
   margin: 0;
+}
+body #nav #beers {
+  font-family: "Anton", sans-serif;
+  font-size: 50px;
+  margin: 0;
+  color: #F8CE01;
 }
 body #nav #beer-icon {
   width: 6%;
@@ -34,12 +42,8 @@ body #nav #beer-icon {
   flex-direction: column;
   align-items: center;
 }
-#all-beers .col-1 .beer-div {
-  color: red;
-  display: flex;
-}
 #all-beers .col-2 {
-  margin-top: 50%;
+  margin-top: 15%;
 }
 
 #footer {
@@ -57,6 +61,95 @@ body #nav #beer-icon {
 #footer #api {
   font-family: "Open Sans", sans-serif;
   font-weight: 100;
+}
+
+#beer-modal {
+  width: 75%;
+  height: 4.7%;
+  border: rgba(0, 0, 0, 0.315) solid 1px;
+  background-color: white;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  animation: modal 1s;
+  animation-fill-mode: forwards;
+}
+#beer-modal button {
+  border: none;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  width: max-content;
+  transition: 0.3s;
+}
+#beer-modal button:hover {
+  background-color: #F8CE01;
+  color: black;
+}
+#beer-modal div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#beer-modal div .beer-modal-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+#beer-modal div .beer-modal-img img {
+  width: 25%;
+}
+#beer-modal div .beer-modal-info {
+  border-left: black solid 1px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 50%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#beer-modal div .beer-modal-info h3 {
+  font-family: "Anton", sans-serif;
+  font-size: 50px;
+  margin: 0;
+  color: #F8CE01;
+}
+#beer-modal div .beer-modal-info h5 {
+  font-family: "Anton", sans-serif;
+  font-size: 20px;
+  margin: 0;
+}
+#beer-modal div .beer-modal-info p {
+  margin-top: 50px;
+  font-family: "Open Sans", sans-serif;
+}
+#beer-modal div .beer-modal-info .spe {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+}
+#beer-modal div .beer-modal-info .spe p {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+@keyframes modal {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 15%;
+  }
+}
+.beer-none {
+  display: none;
 }
 
 /*# sourceMappingURL=/script.04c05cf5.css.map */
